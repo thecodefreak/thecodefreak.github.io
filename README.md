@@ -1,2 +1,1 @@
-# thecodefreak.github.io
-blog
+# thecodefreak.in
