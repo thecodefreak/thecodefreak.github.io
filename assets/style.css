@@ -252,6 +252,8 @@ a:hover {
 .lang-shell { background: #89e051; }
 .lang-js { background: #f1e05a; }
 .lang-html { background: #e34c26; }
+.lang-go { background: #00add8; }
+.lang-misc { background: #8b949e; }
 
 /* Tracks */
 .tracks {
