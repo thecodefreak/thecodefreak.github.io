@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xfer - Secure Encrypted File Transfer</title>
+  <meta name="description" content="Secure, encrypted file transfer between devices via QR codes and end-to-end encryption.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="./" class="brand-link" aria-label="xfer home">
+        <img src="../assets/logos/xfer-logo.png" class="brand-logo" alt="xfer logo">
+        <span class="brand-text">fer</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#features" class="top-nav-link">Features</a>
+        <a href="#docs" class="top-nav-link">Docs</a>
+        <a href="#deploy" class="top-nav-link">Deploy</a>
+        <a href="https://github.com/thecodefreak/xfer" class="top-nav-link top-nav-link-cta" target="_blank" rel="noopener">
+          <img src="../assets/icons/github.svg" class="icon" alt="" aria-hidden="true">
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-title">
+        <img src="../assets/logos/xfer-logo.png" class="logo" alt="Xfer logo">
+        <h1>Xfer</h1>
+      </div>
+      <p class="subtitle">Secure, encrypted file transfer via QR codes.</p>
+      <p class="intro">Send files from desktop to mobile or mobile to desktop with end-to-end encryption and checksum verification.</p>
+      <div class="hero-actions">
+        <a href="https://github.com/thecodefreak/xfer" class="button" target="_blank" rel="noopener">
+          <img src="../assets/icons/repo.svg" class="icon" alt="" aria-hidden="true">
+          View Repository
+        </a>
+      </div>
+      <ul class="hero-meta">
+        <li>AES-256-GCM</li>
+        <li>Zero-knowledge relay</li>
+        <li>CLI + Browser flow</li>
+      </ul>
+    </section>
+
+    <section class="section" id="install">
+      <h2><img src="../assets/icons/repo.svg" class="icon" alt="" aria-hidden="true"> Quick Install</h2>
+      <div class="tablist" role="tablist" aria-label="Install methods">
+        <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-go" id="tab-go-btn" data-tab-target="tab-go">Client (CLI)</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-docker" id="tab-docker-btn" data-tab-target="tab-docker">Server</button>
+      </div>
+      <div class="tab-panel is-active" id="tab-go" role="tabpanel" aria-labelledby="tab-go-btn">
+        <h3 class="subheading">Quick Install Script (Linux/macOS)</h3>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button" data-copy-target="install-script" aria-label="Copy quick install script command">
+            <svg viewBox="0 0 16 16" class="copy-icon" aria-hidden="true">
+              <path d="M5 1.75A1.75 1.75 0 0 1 6.75 0h6.5A1.75 1.75 0 0 1 15 1.75v8.5A1.75 1.75 0 0 1 13.25 12h-6.5A1.75 1.75 0 0 1 5 10.25zM6.75 1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25z"/>
+              <path d="M1 4.75A1.75 1.75 0 0 1 2.75 3h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 15h-6.5A1.75 1.75 0 0 1 1 13.25z"/>
+            </svg>
+            <span>Copy</span>
+          </button>
+          <pre><code id="install-script">curl -fsSL https://raw.githubusercontent.com/thecodefreak/xfer/main/install.sh | bash</code></pre>
+        </div>
+        <h3 class="subheading">With Go</h3>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button" data-copy-target="install-go" aria-label="Copy Go install command">
+            <svg viewBox="0 0 16 16" class="copy-icon" aria-hidden="true">
+              <path d="M5 1.75A1.75 1.75 0 0 1 6.75 0h6.5A1.75 1.75 0 0 1 15 1.75v8.5A1.75 1.75 0 0 1 13.25 12h-6.5A1.75 1.75 0 0 1 5 10.25zM6.75 1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25z"/>
+              <path d="M1 4.75A1.75 1.75 0 0 1 2.75 3h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 15h-6.5A1.75 1.75 0 0 1 1 13.25z"/>
+            </svg>
+            <span>Copy</span>
+          </button>
+          <pre><code id="install-go">go install github.com/thecodefreak/xfer/cmd/xfer@latest</code></pre>
+        </div>
+        <p class="section-copy">
+          Releases:
+          <a href="https://github.com/thecodefreak/xfer/releases" class="inline-link" target="_blank" rel="noopener">Install prebuilt binary from GitHub Releases</a>
+        </p>
+      </div>
+      <div class="tab-panel" id="tab-docker" role="tabpanel" aria-labelledby="tab-docker-btn">
+        <p class="section-copy">
+          Releases:
+          <a href="https://github.com/thecodefreak/xfer/releases" class="inline-link" target="_blank" rel="noopener">Install prebuilt xfer-server binary from GitHub Releases</a>
+        </p>
+        <h3 class="subheading">Docker (Recommended)</h3>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button" data-copy-target="install-docker" aria-label="Copy Docker run command">
+            <svg viewBox="0 0 16 16" class="copy-icon" aria-hidden="true">
+              <path d="M5 1.75A1.75 1.75 0 0 1 6.75 0h6.5A1.75 1.75 0 0 1 15 1.75v8.5A1.75 1.75 0 0 1 13.25 12h-6.5A1.75 1.75 0 0 1 5 10.25zM6.75 1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25z"/>
+              <path d="M1 4.75A1.75 1.75 0 0 1 2.75 3h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 15h-6.5A1.75 1.75 0 0 1 1 13.25z"/>
+            </svg>
+            <span>Copy</span>
+          </button>
+          <pre><code id="install-docker">docker run -d \
+  -e XFER_BASE_URL=https://xfer.example.com \
+  -p 127.0.0.1:8080:8080 \
+  ghcr.io/thecodefreak/xfer:latest</code></pre>
+        </div>
+        <h3 class="subheading">Docker Compose</h3>
+        <div class="code-wrap">
+          <button class="copy-btn" type="button" data-copy-target="install-server-compose" aria-label="Copy Docker Compose config">
+            <svg viewBox="0 0 16 16" class="copy-icon" aria-hidden="true">
+              <path d="M5 1.75A1.75 1.75 0 0 1 6.75 0h6.5A1.75 1.75 0 0 1 15 1.75v8.5A1.75 1.75 0 0 1 13.25 12h-6.5A1.75 1.75 0 0 1 5 10.25zM6.75 1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25z"/>
+              <path d="M1 4.75A1.75 1.75 0 0 1 2.75 3h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 15h-6.5A1.75 1.75 0 0 1 1 13.25z"/>
+            </svg>
+            <span>Copy</span>
+          </button>
+          <pre><code id="install-server-compose">services:
+  xfer:
+    image: ghcr.io/thecodefreak/xfer:latest
+    environment:
+      XFER_BASE_URL: https://xfer.example.com
+      XFER_PORT: 8080
+      XFER_SESSION_TTL: 5m
+      XFER_MAX_SIZE: 209715200
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2><img src="../assets/icons/repo.svg" class="icon" alt="" aria-hidden="true"> Features</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>End-to-End Encryption</h3>
+          <p>Mandatory AES-256-GCM encryption with HKDF-SHA256 key derivation.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Strict Transfer Completion</h3>
+          <p>Sender succeeds only after receiver finalizes and checksum verification passes.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Cross-Network Friendly</h3>
+          <p>Designed to work behind NAT/firewalls using a secure relay transport.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Optional Password Layer</h3>
+          <p>Argon2id password protection for transfers that need extra access control.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-col" id="commands">
+      <div>
+        <h2><img src="../assets/icons/repo.svg" class="icon" alt="" aria-hidden="true"> Send</h2>
+        <pre><code>xfer send photo.jpg
+xfer send --password document.pdf
+xfer send file1.txt file2.txt folder/</code></pre>
+      </div>
+      <div>
+        <h2><img src="../assets/icons/globe.svg" class="icon" alt="" aria-hidden="true"> Receive</h2>
+        <pre><code>xfer receive
+xfer receive ~/Downloads/</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2><img src="../assets/icons/repo.svg" class="icon" alt="" aria-hidden="true"> CLI Commands</h2>
+      <pre><code>xfer send &lt;files...&gt;
+xfer receive [path]
+xfer config &lt;get|set|list|reset&gt;
+xfer version</code></pre>
+    </section>
+
+    <section class="section" id="config">
+      <h2><img src="../assets/icons/globe.svg" class="icon" alt="" aria-hidden="true"> Config</h2>
+      <p class="section-copy">Config file path: <code>~/.config/xfer/config.yaml</code></p>
+      <pre><code>server: "https://xfer.example.com"
+timeout: 10m
+output-dir: "."
+progress: true
+history: true
+hide-filenames: false</code></pre>
+    </section>
+
+    <section class="section">
+      <h2><img src="../assets/icons/globe.svg" class="icon" alt="" aria-hidden="true"> How It Works</h2>
+      <div class="architecture">
+        <div class="arch-node">
+          <h3>CLI Sender</h3>
+          <p>Encrypts files and emits QR payload.</p>
+        </div>
+        <div class="arch-arrow" aria-hidden="true">→</div>
+        <div class="arch-node">
+          <h3>Relay Server</h3>
+          <p>Blind transport for encrypted chunks.</p>
+        </div>
+        <div class="arch-arrow" aria-hidden="true">→</div>
+        <div class="arch-node">
+          <h3>Browser Receiver</h3>
+          <p>Decrypts locally and finalizes transfer.</p>
+        </div>
+      </div>
+      <ol class="flow">
+        <li>Run <code>xfer send ...</code> from the CLI.</li>
+        <li>Scan the generated QR code on the receiving device.</li>
+        <li>Transfer stays encrypted end-to-end through the relay server.</li>
+        <li>Receiver decrypts locally and confirms completion.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="use-cases">
+      <h2><img src="../assets/icons/globe.svg" class="icon" alt="" aria-hidden="true"> Use Cases</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Desktop to Phone</h3>
+          <p>Move screenshots, logs, and exports quickly without cloud upload steps.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Phone to Workstation</h3>
+          <p>Scan once from terminal and receive photos or docs directly into downloads.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Temporary Secure Share</h3>
+          <p>Use optional password mode for one-time sensitive file handoff.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Self-Hosted Team Relay</h3>
+          <p>Run the relay in your infra and keep transfer control inside your environment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <h2><img src="../assets/icons/github.svg" class="icon" alt="" aria-hidden="true"> Docs</h2>
+      <div class="docs-grid">
+        <a class="doc-card" href="https://github.com/thecodefreak/xfer#readme" target="_blank" rel="noopener">
+          <h3>README</h3>
+          <p>Install, quick start, command usage, and deployment basics.</p>
+        </a>
+        <a class="doc-card" href="https://github.com/thecodefreak/xfer/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener">
+          <h3>Architecture</h3>
+          <p>Transport flow, cryptographic boundaries, and service design.</p>
+        </a>
+        <a class="doc-card" href="https://github.com/thecodefreak/xfer/blob/main/SECURITY.md" target="_blank" rel="noopener">
+          <h3>Security</h3>
+          <p>Threat model, cryptographic choices, and operational guidance.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="deploy">
+      <h2><img src="../assets/icons/github.svg" class="icon" alt="" aria-hidden="true"> Deploy Server</h2>
+      <p class="section-copy">
+        Container image:
+        <a href="https://ghcr.io/thecodefreak/xfer" class="inline-link" target="_blank" rel="noopener">ghcr.io/thecodefreak/xfer</a>
+      </p>
+      <h3 class="subheading">Docker Command</h3>
+      <div class="code-wrap">
+        <button class="copy-btn" type="button" data-copy-target="docker-command" aria-label="Copy Docker command">
+          <svg viewBox="0 0 16 16" class="copy-icon" aria-hidden="true">
+            <path d="M5 1.75A1.75 1.75 0 0 1 6.75 0h6.5A1.75 1.75 0 0 1 15 1.75v8.5A1.75 1.75 0 0 1 13.25 12h-6.5A1.75 1.75 0 0 1 5 10.25zM6.75 1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25z"/>
+            <path d="M1 4.75A1.75 1.75 0 0 1 2.75 3h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 15h-6.5A1.75 1.75 0 0 1 1 13.25z"/>
+          </svg>
+          <span>Copy</span>
+        </button>
+        <pre><code id="docker-command">docker run -d \
+  -e XFER_BASE_URL=https://xfer.example.com \
+  -p 127.0.0.1:8080:8080 \
+  ghcr.io/thecodefreak/xfer:latest</code></pre>
+      </div>
+
+      <h3 class="subheading">Docker Compose</h3>
+      <div class="code-wrap">
+        <button class="copy-btn" type="button" data-copy-target="docker-compose" aria-label="Copy Docker Compose config">
+          <svg viewBox="0 0 16 16" class="copy-icon" aria-hidden="true">
+            <path d="M5 1.75A1.75 1.75 0 0 1 6.75 0h6.5A1.75 1.75 0 0 1 15 1.75v8.5A1.75 1.75 0 0 1 13.25 12h-6.5A1.75 1.75 0 0 1 5 10.25zM6.75 1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25z"/>
+            <path d="M1 4.75A1.75 1.75 0 0 1 2.75 3h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 15h-6.5A1.75 1.75 0 0 1 1 13.25z"/>
+          </svg>
+          <span>Copy</span>
+        </button>
+        <pre><code id="docker-compose">services:
+  xfer:
+    image: ghcr.io/thecodefreak/xfer:latest
+    environment:
+      XFER_BASE_URL: https://xfer.example.com
+      XFER_PORT: 8080
+      XFER_SESSION_TTL: 5m
+      XFER_MAX_SIZE: 209715200
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped</code></pre>
+      </div>
+    </section>
+  </main>
+  <script>
+    const copyButtons = document.querySelectorAll(".copy-btn");
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+    }
+
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const targetId = button.getAttribute("data-copy-target");
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        const text = target.textContent || "";
+        try {
+          await copyText(text.trim());
+          const label = button.querySelector("span");
+          if (!label) return;
+          const original = label.textContent;
+          label.textContent = "Copied";
+          button.classList.add("copied");
+          window.setTimeout(() => {
+            label.textContent = original;
+            button.classList.remove("copied");
+          }, 1200);
+        } catch {
+          const label = button.querySelector("span");
+          if (label) label.textContent = "Failed";
+        }
+      });
+    });
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-tab-target");
+        tabButtons.forEach((tab) => {
+          const isActive = tab === button;
+          tab.classList.toggle("is-active", isActive);
+          tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+        tabPanels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.id === targetId);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
